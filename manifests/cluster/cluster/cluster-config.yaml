@@ -1,0 +1,22 @@
+# cluster.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: workshop-eks-automode
+  region: us-east-1
+  version: "1.35"
+vpc:
+  id: "vpc-xxxx-xxxxx-xxxxx"
+  subnets:
+    public:
+      us-east-1a:
+          id: "subnet-xxxxx"
+      us-east-1b:
+          id: "subnet-xxxxx-xxxxx"
+      us-east-1c:
+          id: "subnet-xxxxx-xxxxx-xxxxx"            
+autoModeConfig:
+  # defaults to false
+  enabled: true
+  nodePools: [general-purpose]
